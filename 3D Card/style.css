@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.card-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  /* justify-content aligns flex items in the center on the x(horizontal) axis */
+  justify-content: center;
+  /* align-items aligns flex items in the center on the y(verticl) axis */
+  align-items: center;
+  /* using both together we can center content in the center of its container */
+}
+
+.card {
+  /* Perspective creates the 3D enviornment */
+  perspective: 800px;
+}
+
+.frame {
+  border: 10px solid #333;
+  border-radius: 5px;
+  transform: rotateY(-40deg);
+  /* preserve-3d allows us to "chain" the 3d enviornment from it's parent */
+  transform-style: preserve-3d;
+  transition: all 0.4s;
+}
+
+.content {
+  width: 400px;
+  height: 200px;
+  background-color: rgba(255, 201, 25, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(60deg) rotateX(20deg);
+  transition: all 0.3s;
+  border-radius: 5px;
+}
+
+.card:hover .frame {
+  transform: rotateY(0);
+}
+
+.card:hover .content {
+  transform: rotateY(0) rotateX(0);
+  border-radius: 0;
+}
+
+.heading {
+  font-family: "Cantarell", sans-serif;
+  text-transform: uppercase;
+  color: #333;
+}
+
+.heading span {
+  background-color: #333;
+  color: #fff;
+}

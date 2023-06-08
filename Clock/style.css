@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&family=Orbitron:wght@900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Concert One", cursive;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock {
+  width: 35rem;
+  height: 35rem;
+  background: radial-gradient(rgba(20, 20, 20, 0.5), rgba(0, 0, 0, 0.2)),
+    url(images/DiMNDev-Profile.png) center no-repeat;
+  background-size: 35rem 35rem;
+  background-position-y: top;
+  border-radius: 50%;
+  border: 0.5rem solid #777;
+  box-shadow: 0.5rem 0.5rem 1rem #555, -0.5rem -0.5rem 1rem #555;
+  position: relative;
+  z-index: 2;
+}
+
+.numbers {
+  width: inherit;
+  height: inherit;
+  position: relative;
+  font-size: 2.5rem;
+}
+
+.numbers div {
+  position: absolute;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 20%;
+  text-align: center;
+  padding: 0.5rem;
+  color: #fff;
+  text-shadow: 0.2rem 0.2rem 0.2rem #222;
+}
+
+.twelve {
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.three {
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.six {
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nine {
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.arrows {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrows::before {
+  content: "";
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: goldenrod;
+  border-radius: 50%;
+  box-shadow: -0.2rem -0.2rem 0.5rem rgba(0, 0, 0, 0.9),
+    0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.7) inset;
+  z-index: 10;
+}
+
+.arrows div {
+  width: 0.7rem;
+  height: 12rem;
+  background-color: #fff0f5;
+  position: absolute;
+  bottom: 50%;
+  box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
+  border-radius: 100% 100% 0 0;
+  transform-origin: bottom center;
+}
+
+.arrows .hour {
+  height: 10rem;
+  box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 55, 0.2) inset;
+  transform: rotate(0);
+}
+
+.arrows .second {
+  background-color: maroon;
+  box-shadow: 0.2rem 0.2rem 0.2rem rgba(255, 255, 255, 0.2) inset;
+  transform: rotate(0);
+}
+
+.count-container {
+  width: 50rem;
+  height: 10rem;
+  position: absolute;
+  top: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.time-counter {
+  position: relative;
+  font-family: "Orbitron", serif;
+  font-size: 6rem;
+  color: #eee;
+  /* background-color: #333; */
+  text-shadow: 0 0.1rem 0.3rem #777 inset;
+  top: 80%;
+  z-index: 1;
+}
+
+.change.time-counter.second {
+  animation-name: countAnimation;
+  animation-duration: 0.9s;
+}
+
+@keyframes countAnimation {
+  0% {
+    color: #eee;
+  }
+  50% {
+    color: maroon;
+  }
+
+  100% {
+    color: #eee;
+  }
+}
+
+.string-date {
+  position: absolute;
+  font-size: 10rem;
+  color: #222;
+  /* background-color: #333; */
+  text-shadow: 0 0.1rem 0.3rem #777;
+  box-shadow: 0.5rem 0.5rem 10rem #777 inset;
+  top: 10%;
+  z-index: 1;
+  border-bottom: 1rem solid #333;
+  border-right: 1rem solid #333;
+  border-radius: 2rem;
+}
+
+@media (max-width: 800px) {
+  .string-date {
+    position: absolute;
+    font-size: 5rem;
+    color: #222;
+    /* background-color: #333; */
+    text-shadow: 0 0.1rem 0.3rem #777;
+    box-shadow: 0.5rem 0.5rem 10rem #777 inset;
+    top: 10%;
+    z-index: 1;
+    border-bottom: 1rem solid #333;
+    border-right: 1rem solid #333;
+    border-radius: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .string-date {
+    position: absolute;
+    font-size: 5rem;
+    color: #222;
+    /* background-color: #333; */
+    text-shadow: 0 0.1rem 0.3rem #777;
+    box-shadow: 0.5rem 0.5rem 10rem #777 inset;
+    top: -50%;
+    z-index: 1;
+    border-bottom: 1rem solid #333;
+    border-right: 1rem solid #333;
+    border-radius: 2rem;
+  }
+
+  .count-container {
+    width: 30rem;
+    height: 10rem;
+    position: absolute;
+    top: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .time-counter {
+    font-family: "Orbitron", serif;
+    font-size: 4rem;
+    color: #eee;
+    /* background-color: #333; */
+    text-shadow: 0 0.1rem 0.3rem #777 inset;
+    top: 80%;
+    z-index: 1;
+  }
+}
